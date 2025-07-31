@@ -22,9 +22,9 @@ async function loadGitHubAI() {
   });
 }
 
-// GitHub 搜索生命科学项目 （使用 topic:bioinformatics ai  或 description），按 stars 排序
+// GitHub 搜索生命科学项目 （使用 topic:life science  或 description），按 stars 排序
 async function loadGitHubLifeScience() {
-  const resp = await fetch('https://api.github.com/search/repositories?q=topic:life-science+bioinformatics+ai+language:Python&sort=stars&order=desc&per_page=10');
+  const resp = await fetch('https://api.github.com/search/repositories?q=topic:life-science+language:Python&sort=stars&order=desc&per_page=10');
   const items = (await resp.json()).items || [];
   const ul = document.getElementById('gh-life-list');
   items.forEach(repo => {
